@@ -1,0 +1,39 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.log
+*.tlog
+
+# NuGet
+*.nupkg
+packages/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Backup/Crash
+*.orig
+*.bak
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# VS Databases / Cache
+*.sdf
+*.ncb
+*.opensdf
+ipch/
+
+# Artifacts
+*.pdb

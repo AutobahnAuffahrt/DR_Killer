@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore "DR_Killer.sln"
+
+      - name: Build Solution (Release x86)
+        run: msbuild "DR_Killer.sln" /t:Rebuild /p:Configuration=Release /p:Platform=x86
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DR_Killer-Release-x86
+          path: |
+            DR_Killer/bin/Release/**
+            !DR_Killer/bin/Release/**/*.pdb

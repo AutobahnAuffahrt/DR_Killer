@@ -1,0 +1,8 @@
+# Ensure consistent line endings
+* text=auto
+
+# Treat common image formats as binary
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
